@@ -1,2 +1,53 @@
-<p>books works!</p>
-<i class="bi bi-star-fill"></i>
+<div class="d-flex justify-content-center align-items-center text-center vh-100">
+  <div class="card text-white bg-dark p-5">
+    <form>
+      <h1 class="mb-3">Book Registration</h1>
+      <div class="row mb-3">
+        <div class="input-group col">
+          <input class="form-control" type="text" name="title" id="title" placeholder="Enter the book title">
+          <span class="input-group-text"><i class="bi bi-book"></i></span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="input-group">
+          <textarea class="form-control" type="text" name="synopsis" id="synopsis" placeholder="Enter the synopsis"></textarea>
+          <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="input-group col">
+          <input class="form-control" type="text" name="gender" id="gender" placeholder="Enter the literary gender">
+          <span class="input-group-text"><i class="bi bi-heart"></i></span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="input-group col">
+          <input class="form-control" type="text" name="year" id="year" placeholder="book year">
+          <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+        </div>
+        <div class="input-group col">
+          <select class="form-control">
+            <option value="" disabled selected>Rate the book</option>
+            <option value="">⭐</option>
+            <option value="">⭐⭐</option>
+            <option value="">⭐⭐⭐</option>
+            <option value="">⭐⭐⭐⭐</option>
+            <option value="">⭐⭐⭐⭐⭐</option>
+          </select>
+          <span class="input-group-text"><i class="bi bi-award"></i></span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="input-group col">
+          <select class="form-control">
+            <option value="" disabled selected>Author name</option>
+          </select>
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+        </div>
+      </div>
+      <div class="row mx-auto mb-3">
+        <button class="btn btn-light" type="submit">save <i class="bi bi-box-arrow-in-right"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
