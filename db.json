@@ -1,0 +1,13 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "kamasutra",
+      "synopsis": "tá ligado né",
+      "gender": "sexo",
+      "year": 1000,
+      "rating": "Very Good",
+      "idAuthor": 1
+    }
+  ]
+}

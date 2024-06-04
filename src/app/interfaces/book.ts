@@ -1,6 +1,6 @@
-import { Rating } from "../enum/rating";
+import { Rating } from '../enum/rating';
 
-export interface Book{
+export interface Book {
   id: number;
   title: string;
   synopsis: string;
