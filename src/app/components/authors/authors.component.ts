@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Author } from '../../interfaces/author';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthorService } from '../../services/author.service';
 
 @Component({
   selector: 'app-authors',
   templateUrl: './authors.component.html',
   styleUrl: './authors.component.css',
 })
-export class AuthorsComponent {
+export class AuthorsComponent implements OnInit {
   authors: Author[] = [];
   authorFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: AuthorService
+  ) {
     this.authorFormGroup = formBuilder.group({
       id: [''],
       name: [''],
@@ -19,6 +23,15 @@ export class AuthorsComponent {
       pseudonym: [''],
       date: [''],
       awarded: [''],
+    });
+  }
+  ngOnInit(): void {
+    this.loadAuthors();
+  }
+
+  loadAuthors() {
+    this.service.getAuthors().subscribe({
+      next: (data) => (this.authors = data),
     });
   }
 
