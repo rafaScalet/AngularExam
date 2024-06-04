@@ -47,6 +47,7 @@
             <th scope="col">Pseudonym</th>
             <th scope="col">Date</th>
             <th scope="col">Awarded</th>
+            <th scope="col">Option</th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +58,10 @@
             <td>{{author.pseudonym}}</td>
             <td>{{author.date}}</td>
             <td>{{author.awarded}}</td>
+            <td>
+              <button type="button" (click)="delete(author)" class="btn btn-sm btn-danger me-1"><i class="bi bi-trash"></i></button>
+              <button type="button" (click)="update(author)" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></button>
+            </td>
           </tr>
         </tbody>
       </table>

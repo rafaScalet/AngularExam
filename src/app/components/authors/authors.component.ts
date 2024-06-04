@@ -9,6 +9,7 @@ import { AuthorService } from '../../services/author.service';
   styleUrl: './authors.component.css',
 })
 export class AuthorsComponent implements OnInit {
+  isEditing: boolean = false;
   authors: Author[] = [];
   authorFormGroup: FormGroup;
 
@@ -36,6 +37,32 @@ export class AuthorsComponent implements OnInit {
   }
 
   save() {
-    this.authors.push(this.authorFormGroup.value);
+    if (this.isEditing) {
+      this.service.putAuthor(this.authorFormGroup.value).subscribe({
+        next: () => {
+          this.loadAuthors();
+          this.isEditing = false;
+          this.authorFormGroup.reset();
+        },
+      });
+    } else {
+      this.service.postAuthor(this.authorFormGroup.value).subscribe({
+        next: (data) => {
+          this.authors.push(data);
+          this.authorFormGroup.reset();
+        },
+      });
+    }
+  }
+
+  delete(author: Author) {
+    this.service.deleteAuthor(author).subscribe({
+      next: () => this.loadAuthors(),
+    });
+  }
+
+  update(author: Author) {
+    this.isEditing = true;
+    this.authorFormGroup.setValue(author);
   }
 }

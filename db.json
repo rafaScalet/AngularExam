@@ -1,23 +1,4 @@
 {
-  "books": [
-    {
-      "id": 1,
-      "title": "1",
-      "synopsis": "1",
-      "gender": "1",
-      "year": "1",
-      "rating": "Bad",
-      "authorId": null
-    }
-  ],
-  "authors": [
-    {
-      "id": 1,
-      "name": "coisa",
-      "pseudonym": "ain",
-      "nationality": "transariano",
-      "date": "data",
-      "awarded": true
-    }
-  ]
+  "books": [],
+  "authors": []
 }

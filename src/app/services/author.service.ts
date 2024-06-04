@@ -11,7 +11,19 @@ export class AuthorService {
 
   constructor(private http: HttpClient) {}
 
-  getAuthors(): Observable<Author[]>{
+  getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>(this.url);
+  }
+
+  postAuthor(author: Author): Observable<Author> {
+    return this.http.post<Author>(this.url, author);
+  }
+
+  deleteAuthor(author: Author): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${author.id}`);
+  }
+
+  putAuthor(author: Author): Observable<Author> {
+    return this.http.put<Author>(`${this.url}/${author.id}`, author);
   }
 }
