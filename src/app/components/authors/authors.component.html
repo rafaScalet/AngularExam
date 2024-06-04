@@ -24,7 +24,7 @@
           <div class="input-group col">
             <div class="btn-group col-12" role="group" aria-label="Basic checkbox toggle button group">
               <input type="checkbox" formControlName="awarded" class="btn-check" id="awarded" autocomplete="off">
-              <label class="btn btn-outline-danger" for="awarded"><i class="bi bi-award"></i> awarded <i class="bi bi-award"></i></label>
+              <label class="btn btn-outline-light" for="awarded"><i class="bi bi-award"></i> awarded <i class="bi bi-award"></i></label>
             </div>
           </div>
           <small class="text-danger text-start" *ngIf="isSubmiting && date.hasError('required')">*Date is required</small>
@@ -61,7 +61,10 @@
             <td>{{author.nationality}}</td>
             <td>{{author.pseudonym}}</td>
             <td>{{author.date}}</td>
-            <td>{{author.awarded}}</td>
+            <td>
+              <span *ngIf="author.awarded" class="badge text-bg-secondary">Awarded</span>
+              <span *ngIf="!author.awarded" class="badge text-bg-secondary">Not awarded</span>
+            </td>
             <td>
               <button type="button" (click)="delete(author)" class="btn btn-sm btn-danger me-1"><i class="bi bi-trash"></i></button>
               <button type="button" (click)="update(author)" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></button>

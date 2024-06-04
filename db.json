@@ -35,7 +35,7 @@
       "nationality": "1",
       "pseudonym": "1",
       "date": "2024-06-07",
-      "awarded": true
+      "awarded": false
     },
     {
       "id": 2,
@@ -43,7 +43,7 @@
       "nationality": "1",
       "pseudonym": "1",
       "date": "2024-06-07",
-      "awarded": false
+      "awarded": true
     },
     {
       "id": 3,
