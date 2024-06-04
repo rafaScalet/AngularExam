@@ -1,56 +1,72 @@
-<div class="vh-100 bg-dark">
+<div class="bg-dark">
   <div class="d-flex justify-content-center align-items-center text-center">
     <div class="text-white bg-dark p-5 mt-5">
       <form [formGroup]="bookFormGroup">
-        <h1 class="mb-3">Book Registration</h1>
+        <h1 class="mb-5">Book Registration</h1>
         <div class="row mb-3">
           <div class="input-group col">
-            <input class="form-control" type="text" formControlName="title" name="title" id="title" placeholder="Enter the book title">
+            <input class="form-control" type="text" formControlName="title" name="title" id="title"
+              placeholder="Enter the book title">
             <span class="input-group-text"><i class="bi bi-book"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && title.hasError('required')">*Title is
+            required</small>
         </div>
         <div class="row mb-3">
           <div class="input-group">
-            <textarea class="form-control" type="text" formControlName="synopsis" name="synopsis" id="synopsis" placeholder="Enter the synopsis"></textarea>
+            <textarea class="form-control" type="text" formControlName="synopsis" name="synopsis" id="synopsis"
+              placeholder="Enter the synopsis"></textarea>
             <span class="input-group-text"><i class="bi bi-body-text"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && synopsis.hasError('required')">*Synopsis is
+            required</small>
         </div>
         <div class="row mb-3">
           <div class="input-group col">
-            <input class="form-control" type="text" formControlName="gender" name="gender" id="gender" placeholder="Enter the literary gender">
+            <input class="form-control" type="text" formControlName="gender" name="gender" id="gender"
+              placeholder="Enter the literary gender">
             <span class="input-group-text"><i class="bi bi-heart"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && gender.hasError('required')">*Gender is
+            required</small>
         </div>
         <div class="row mb-3">
           <div class="input-group col">
-            <input class="form-control" type="text" formControlName="year" name="year" id="year" placeholder="book year">
+            <input class="form-control" type="text" formControlName="year" name="year" id="year"
+              placeholder="book year">
             <span class="input-group-text"><i class="bi bi-calendar"></i></span>
           </div>
           <div class="input-group col">
             <select class="form-control" name="rating" id="rating" formControlName="rating">
               <option value="" disabled selected>Rate the book</option>
-              <option value="Very Bad">⭐</option>
-              <option value="Bad">⭐⭐</option>
-              <option value="Ok">⭐⭐⭐</option>
-              <option value="Good">⭐⭐⭐⭐</option>
-              <option value="Very Good">⭐⭐⭐⭐⭐</option>
+              <option [value]="rating" *ngFor="let rating of ratings">{{rating}}</option>
             </select>
             <span class="input-group-text"><i class="bi bi-award"></i></span>
+          </div>
+          <div class="row">
+            <small class="text-danger text-start"
+              *ngIf="isSubmiting && (year.hasError('required') || rating.hasError('required'))">{{year.hasError('required')
+              && rating.hasError('required') ? "*Year and rating is required" : year.hasError('required') ? "*Year is
+              required" : "*Rating is required"}}</small>
           </div>
         </div>
         <div class="row mb-3">
           <div class="input-group col">
             <select class="form-control" name="authorId" id="authorId" formControlName="authorId">
               <option value="" disabled selected>Author name</option>
+              <option [ngValue]="author.id" *ngFor="let author of authors">{{author.name}}</option>
             </select>
             <span class="input-group-text"><i class="bi bi-person"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && authorId.hasError('required')">*Author name is
+            required</small>
         </div>
-        <div class="row mx-auto mb-3">
-          <button class="btn btn-light" (click)="save()" type="submit">save <i class="bi bi-box-arrow-in-right"></i></button>
+        <div class="row mx-auto mb-5">
+          <button class="btn btn-light" (click)="save()" type="submit">save <i
+              class="bi bi-box-arrow-in-right"></i></button>
         </div>
       </form>
-      <h1 class="mb-3">Book</h1>
+      <h1 class="mb-5">Books</h1>
       <table class="table table-dark table-striped">
         <thead>
           <tr class="p-3">
@@ -64,16 +80,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr  *ngFor="let book of books">
+          <tr *ngFor="let book of books">
             <th scope="row">{{book.id}}</th>
             <td>{{book.title}}</td>
             <td>{{book.gender}}</td>
             <td>{{book.year}}</td>
             <td>{{book.rating}}</td>
-            <td>{{book.idAuthor}}</td>
+            <td>{{getAuthorName(book.authorId)?.name}}</td>
             <td>
-              <button type="button" (click)="delete(book)" class="btn btn-sm btn-danger me-1"><i class="bi bi-trash"></i></button>
-              <button type="button" (click)="update(book)" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></button>
+              <button type="button" (click)="delete(book)" class="btn btn-sm btn-danger me-1"><i
+                  class="bi bi-trash"></i></button>
+              <button type="button" (click)="update(book)" class="btn btn-sm btn-success"><i
+                  class="bi bi-pencil"></i></button>
             </td>
           </tr>
         </tbody>

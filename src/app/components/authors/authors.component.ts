@@ -55,7 +55,7 @@ export class AuthorsComponent implements OnInit {
         this.service.postAuthor(this.authorFormGroup.value).subscribe({
           next: (data) => {
             this.authors.push(data);
-            this.authorFormGroup.reset();
+            // this.authorFormGroup.reset();
             this.authorFormGroup.patchValue({ awarded: false });
             this.isSubmiting = false;
           },

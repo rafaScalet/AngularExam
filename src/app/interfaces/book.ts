@@ -7,5 +7,5 @@ export interface Book {
   gender: string;
   year: number;
   rating: Rating;
-  idAuthor: number;
+  authorId: number;
 }
