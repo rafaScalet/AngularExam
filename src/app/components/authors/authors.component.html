@@ -1,19 +1,21 @@
-<div class="vh-100 bg-dark">
+<div class="bg-dark">
   <div class="d-flex justify-content-center align-items-center text-center">
     <div class="text-white bg-dark p-5 mt-5">
       <form [formGroup]="authorFormGroup">
-        <h1 class="mb-3">Author Registration</h1>
+        <h1 class="mb-5">Author Registration</h1>
         <div class="row mb-3">
           <div class="input-group col">
             <input class="form-control" formControlName="name" type="text" name="name" id="name" placeholder="Enter the name">
             <span class="input-group-text"><i class="bi bi-card-text"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && name.hasError('required')">*Name is required</small>
         </div>
         <div class="row mb-3">
           <div class="input-group col">
             <input class="form-control" formControlName="pseudonym" type="text" name="pseudonym" id="pseudonym" placeholder="Enter the pseudonym">
             <span class="input-group-text"><i class="bi bi-person"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && pseudonym.hasError('required')">*Pseudonym is required</small>
         </div>
         <div class="row mb-3">
           <div class="input-group col">
@@ -25,6 +27,7 @@
               <label class="btn btn-outline-danger" for="awarded"><i class="bi bi-award"></i> awarded <i class="bi bi-award"></i></label>
             </div>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && date.hasError('required')">*Date is required</small>
         </div>
         <div class="row mb-3">
           <div class="input-group col">
@@ -32,12 +35,13 @@
               placeholder="Enter the nationality">
             <span class="input-group-text"><i class="bi bi-globe-americas"></i></span>
           </div>
+          <small class="text-danger text-start" *ngIf="isSubmiting && nationality.hasError('required')">*Nationality is required</small>
         </div>
-        <div class="row mx-auto mb-3">
+        <div class="row mx-auto mb-5">
           <button class="btn btn-light" (click)="save()" type="submit">save <i class="bi bi-box-arrow-in-right"></i></button>
         </div>
       </form>
-      <h1 class="mb-3">Author</h1>
+      <h1 class="mb-5">Author</h1>
       <table class="table table-dark table-striped">
         <thead>
           <tr class="p-3">
