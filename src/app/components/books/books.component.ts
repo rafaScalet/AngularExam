@@ -30,6 +30,11 @@ export class BooksComponent implements OnInit {
   }
 
   save() {
-    this.books.push(this.bookFormGroup.value);
+    this.service.postBook(this.bookFormGroup.value).subscribe({
+      next: (data) => {
+        this.books.push(data);
+        this.bookFormGroup.reset();
+      },
+    });
   }
 }
