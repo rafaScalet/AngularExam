@@ -1,76 +1,78 @@
-<div class="d-flex justify-content-center align-items-center text-center bg-dark">
-  <div class="text-white bg-dark p-5 mt-5">
-    <form [formGroup]="bookFormGroup">
-      <h1 class="mb-3">Book Registration</h1>
-      <div class="row mb-3">
-        <div class="input-group col">
-          <input class="form-control" type="text" formControlName="title" name="title" id="title" placeholder="Enter the book title">
-          <span class="input-group-text"><i class="bi bi-book"></i></span>
+<div class="vh-100 bg-dark">
+  <div class="d-flex justify-content-center align-items-center text-center bg-dark">
+    <div class="text-white bg-dark p-5 mt-5">
+      <form [formGroup]="bookFormGroup">
+        <h1 class="mb-3">Book Registration</h1>
+        <div class="row mb-3">
+          <div class="input-group col">
+            <input class="form-control" type="text" formControlName="title" name="title" id="title" placeholder="Enter the book title">
+            <span class="input-group-text"><i class="bi bi-book"></i></span>
+          </div>
         </div>
-      </div>
-      <div class="row mb-3">
-        <div class="input-group">
-          <textarea class="form-control" type="text" formControlName="synopsis" name="synopsis" id="synopsis" placeholder="Enter the synopsis"></textarea>
-          <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+        <div class="row mb-3">
+          <div class="input-group">
+            <textarea class="form-control" type="text" formControlName="synopsis" name="synopsis" id="synopsis" placeholder="Enter the synopsis"></textarea>
+            <span class="input-group-text"><i class="bi bi-body-text"></i></span>
+          </div>
         </div>
-      </div>
-      <div class="row mb-3">
-        <div class="input-group col">
-          <input class="form-control" type="text" formControlName="gender" name="gender" id="gender" placeholder="Enter the literary gender">
-          <span class="input-group-text"><i class="bi bi-heart"></i></span>
+        <div class="row mb-3">
+          <div class="input-group col">
+            <input class="form-control" type="text" formControlName="gender" name="gender" id="gender" placeholder="Enter the literary gender">
+            <span class="input-group-text"><i class="bi bi-heart"></i></span>
+          </div>
         </div>
-      </div>
-      <div class="row mb-3">
-        <div class="input-group col">
-          <input class="form-control" type="text" formControlName="year" name="year" id="year" placeholder="book year">
-          <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+        <div class="row mb-3">
+          <div class="input-group col">
+            <input class="form-control" type="text" formControlName="year" name="year" id="year" placeholder="book year">
+            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+          </div>
+          <div class="input-group col">
+            <select class="form-control" name="rating" id="rating" formControlName="rating">
+              <option value="" disabled selected>Rate the book</option>
+              <option value="Very Bad">⭐</option>
+              <option value="Bad">⭐⭐</option>
+              <option value="Ok">⭐⭐⭐</option>
+              <option value="Good">⭐⭐⭐⭐</option>
+              <option value="Very Good">⭐⭐⭐⭐⭐</option>
+            </select>
+            <span class="input-group-text"><i class="bi bi-award"></i></span>
+          </div>
         </div>
-        <div class="input-group col">
-          <select class="form-control" name="rating" id="rating" formControlName="rating">
-            <option value="" disabled selected>Rate the book</option>
-            <option value="Very Bad">⭐</option>
-            <option value="Bad">⭐⭐</option>
-            <option value="Ok">⭐⭐⭐</option>
-            <option value="Good">⭐⭐⭐⭐</option>
-            <option value="Very Good">⭐⭐⭐⭐⭐</option>
-          </select>
-          <span class="input-group-text"><i class="bi bi-award"></i></span>
+        <div class="row mb-3">
+          <div class="input-group col">
+            <select class="form-control" name="authorId" id="authorId" formControlName="authorId">
+              <option value="" disabled selected>Author name</option>
+            </select>
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+          </div>
         </div>
-      </div>
-      <div class="row mb-3">
-        <div class="input-group col">
-          <select class="form-control" name="authorId" id="authorId" formControlName="authorId">
-            <option value="" disabled selected>Author name</option>
-          </select>
-          <span class="input-group-text"><i class="bi bi-person"></i></span>
+        <div class="row mx-auto mb-3">
+          <button class="btn btn-light" (click)="save()" type="submit">save <i class="bi bi-box-arrow-in-right"></i></button>
         </div>
-      </div>
-      <div class="row mx-auto mb-3">
-        <button class="btn btn-light" (click)="save()" type="submit">save <i class="bi bi-box-arrow-in-right"></i></button>
-      </div>
-    </form>
-    <h1 class="mb-3">Alunos</h1>
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr class="p-3">
-          <th scope="col">id</th>
-          <th scope="col">Title</th>
-          <th scope="col">Gender</th>
-          <th scope="col">Year</th>
-          <th scope="col">Rating</th>
-          <th scope="col">Author Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr  *ngFor="let book of books">
-          <th scope="row">{{book.id}}</th>
-          <td>{{book.title}}</td>
-          <td>{{book.gender}}</td>
-          <td>{{book.year}}</td>
-          <td>{{book.rating}}</td>
-          <td>{{book.idAuthor}}</td>
-        </tr>
-      </tbody>
-    </table>
+      </form>
+      <h1 class="mb-3">Book</h1>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr class="p-3">
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Year</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Author Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let book of books">
+            <th scope="row">{{book.id}}</th>
+            <td>{{book.title}}</td>
+            <td>{{book.gender}}</td>
+            <td>{{book.year}}</td>
+            <td>{{book.rating}}</td>
+            <td>{{book.idAuthor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
