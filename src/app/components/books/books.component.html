@@ -60,6 +60,7 @@
             <th scope="col">Year</th>
             <th scope="col">Rating</th>
             <th scope="col">Author Name</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +71,10 @@
             <td>{{book.year}}</td>
             <td>{{book.rating}}</td>
             <td>{{book.idAuthor}}</td>
+            <td>
+              <button type="button" (click)="delete(book)" class="btn btn-sm btn-danger me-1"><i class="bi bi-trash"></i></button>
+              <button type="button" (click)="update(book)" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></button>
+            </td>
           </tr>
         </tbody>
       </table>
