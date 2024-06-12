@@ -1,4 +1,57 @@
 {
-  "books": [],
-  "authors": []
+  "books": [
+    {
+      "id": 1,
+      "title": "Kamasutra",
+      "synopsis": "Tá ligado né",
+      "gender": "Secso",
+      "year": 2005,
+      "rating": "Amazing",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "Alcorão",
+      "synopsis": "Um livro cheio de personagens poderosos",
+      "gender": "Comédia",
+      "year": 2004,
+      "rating": "Bad",
+      "authorId": 3
+    },
+    {
+      "id": 3,
+      "title": "Roblox adventure",
+      "synopsis": "um romance cheio de reviravoltas e porno explicito e forte",
+      "gender": "Suicidio",
+      "year": 2004,
+      "rating": "Good",
+      "authorId": 2
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Murilo Santos",
+      "nationality": "Argentino",
+      "pseudonym": "Muriiiiiiiiii",
+      "date": "2005-12-13",
+      "awarded": false
+    },
+    {
+      "id": 2,
+      "name": "Angelo Ferraz",
+      "nationality": "Cubano",
+      "pseudonym": "Angelino Jolie",
+      "date": "2005-08-19",
+      "awarded": true
+    },
+    {
+      "id": 3,
+      "name": "Julia",
+      "nationality": "Russa",
+      "pseudonym": "Kvenezzi",
+      "date": "2005-11-03",
+      "awarded": true
+    }
+  ]
 }

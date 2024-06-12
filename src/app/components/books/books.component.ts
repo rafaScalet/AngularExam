@@ -66,6 +66,7 @@ export class BooksComponent implements OnInit {
       } else {
         this.bookService.postBook(this.bookFormGroup.value).subscribe({
           next: (data) => {
+            this.loadBooks();
             this.books.push(data);
             this.bookFormGroup.reset();
             this.isSubmiting = false;
@@ -86,7 +87,7 @@ export class BooksComponent implements OnInit {
     this.bookFormGroup.setValue(book);
   }
 
-  getAuthorName(authorId: number): Author | undefined{
+  getAuthorName(authorId: number): Author | undefined {
     return this.authors.find((author) => author.id === authorId);
   }
 
